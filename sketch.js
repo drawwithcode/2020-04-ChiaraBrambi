@@ -1,4 +1,4 @@
-function makeSketch(id, hue) {
+function makeSketch(id, hue, b) {
   let params = {
     // petali
     seeds: 500,
@@ -15,17 +15,17 @@ function makeSketch(id, hue) {
     radiusMin: 0.1,
     radiusMax: 3,
     radiusStep: 0.1,
-    seedColor: '#cc0000',
+    seedColor: '#f07575',
 
     // scale
     zoom: 7,
     zoomMax: 30,
     zoomStep: 0.1,
 
-    opacity: 150,
+    opacity: 50,
     opacityMax: 255,
 
-    bgColor: [hue, 140, 140]
+    bgColor: [hue, 50, b]
 
   };
 
@@ -35,10 +35,10 @@ function makeSketch(id, hue) {
     let gui;
     // contenitore canvas
     let div;
-
     p.setup = function() {
       // color mode used for interpreting param colors
-      p.colorMode(p.HSB, 100, 255, 255, 255);//colorMode(mode,[max])
+      p.colorMode(p.HSB, 100, 255, 255, 100);
+      //colorMode(mode, max1r, max2g, max3b, [maxA]) Hue/Saturation/Brightness (or Lightness)
 
       // all angles in degrees (0 .. 360)
       p.angleMode(p.DEGREES);
@@ -90,12 +90,10 @@ function makeSketch(id, hue) {
 
   }
 
-
   return new p5(sketch, id);
 
 }
-
-// create three sketches on a single page
-let sketch1 = makeSketch('sketch1', 5);
-let sketch2 = makeSketch('sketch2', 10);
-let sketch3 = makeSketch('sketch3', 15);
+//per crearli in una singola pagina
+let sketch1 = makeSketch('sketch1', 11,250);//id , hue
+let sketch2 = makeSketch('sketch2', 13,200);
+let sketch3 = makeSketch('sketch3', 8,255);
