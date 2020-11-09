@@ -1,5 +1,5 @@
 
-
+//manca slider e commenti fatti bene e suono 
 let slider;
 let sfondo, cupido;
 let tt;
