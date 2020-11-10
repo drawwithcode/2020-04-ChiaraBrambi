@@ -1,21 +1,21 @@
 function makeSketch(id, hue, b) {
   let params = {
     // petali
-    seeds: 500,
-    seedsMin: 1,
-    seedsMax: 2000,
+    petali: 500,
+    petaliMin: 1,
+    petaliMax: 2000,
 
-    // angle (phi)
-    angle: 360 * (Math.sqrt(5)-1) / 2,
-    angleMax: 360,
-    angleStep: 0.1,
+    // angolo (phi)
+    angolo: 360 * (Math.sqrt(5)-1) / 2, //radice quadrata 
+    angoloMax: 360,
+    angoloStep: 0.1,
 
     // raggio del petalo
     radius: 1,
     radiusMin: 0.1,
     radiusMax: 3,
     radiusStep: 0.1,
-    seedColor: ['PaleVioletRed','Crimson','IndianRed','MediumOrchid','Teal'],//così facendo posso fare menu a tendina
+    petali_color: ['PaleVioletRed','Crimson','IndianRed','MediumOrchid','Teal'],//così facendo posso fare menu a tendina
 
     //iterazione
     label: 'Nome Rosa',
@@ -44,7 +44,6 @@ function makeSketch(id, hue, b) {
       p.colorMode(p.HSB, 100, 255, 255, 100);
       //colorMode(mode, max1r, max2g, max3b, [maxA]) Hue/Saturation/Brightness (or Lightness)
 
-      // all angles in degrees (0 .. 360)
       p.angleMode(p.DEGREES);
 
       // create a canvas that fills the div
@@ -63,33 +62,34 @@ function makeSketch(id, hue, b) {
     p.draw = function() {
       p.background(params.bgColor);
 
-      // let the seeds be filleth
-      let c = p.color(params.seedColor);
+      // colore petali
+      let c = p.color(params.petali_color);
       p.fill(p.hue(c), p.saturation(c), p.brightness(c), params.opacity );
       p.stroke(0, params.opacity);
 
       // raggio del fiore
       let r = params.radius * params.zoom;
 
-  //////////////////////////////////////////////////////////////////////////////////
 //stroke
 	if(params.bordo) {
 		p.stroke(c);
 	} else {
 	 p.noStroke();
 	}
+
+  //testo
 p.textFont('Beth Ellen');
 p.textSize(20);
 p.text(params.label,div.clientWidth/3*2,div.clientHeight/6);
 
-//costruzione forma
+    //costruzione forma
       p.push();
       // rose al centro
       p.translate(p.width/2, p.height/2);
       // rotazione intorno al centro
-      for(let i = 0; i < params.seeds; i++) {
+      for(let i = 0; i < params.petali; i++) {
         p.push();
-        p.rotate(i * params.angle);
+        p.rotate(i * params.angolo);
                 // distanza dal centro
         let d = p.sqrt(i + 0.5) * params.zoom;
         p.ellipse(d, 0, r, r+20);
@@ -108,6 +108,6 @@ p.text(params.label,div.clientWidth/3*2,div.clientHeight/6);
 
 }
 //per crearli in una singola pagina
-let sketch1 = makeSketch('sketch1', 11,250);//id , hue
+let sketch1 = makeSketch('sketch1', 11,250);//id , hue,b
 let sketch2 = makeSketch('sketch2', 13,200);
 let sketch3 = makeSketch('sketch3', 8,255);

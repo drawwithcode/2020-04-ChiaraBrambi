@@ -66,7 +66,6 @@ function setup() {
   window.open('index2.html','_self');
   }
 
-  // dynamically adjust the canvas to the window
   function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
   }
