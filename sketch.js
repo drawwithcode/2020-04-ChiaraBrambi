@@ -6,7 +6,7 @@ function makeSketch(id, hue, b) {
     petaliMax: 2000,
 
     // angolo (phi)
-    angolo: 360 * (Math.sqrt(5)-1) / 2, //radice quadrata 
+    angolo: 360 * (Math.sqrt(5)-1) / 2, //radice quadrata
     angoloMax: 360,
     angoloStep: 0.1,
 
@@ -18,7 +18,7 @@ function makeSketch(id, hue, b) {
     petali_color: ['PaleVioletRed','Crimson','IndianRed','MediumOrchid','Teal'],//così facendo posso fare menu a tendina
 
     //iterazione
-    label: 'Nome Rosa',
+    scrivi: 'Nome Rosa',
     bordo: false,
 
     // scale
@@ -80,7 +80,7 @@ function makeSketch(id, hue, b) {
   //testo
 p.textFont('Beth Ellen');
 p.textSize(20);
-p.text(params.label,div.clientWidth/3*2,div.clientHeight/6);
+p.text(params.scrivi,div.clientWidth/3*2,div.clientHeight/6);
 
     //costruzione forma
       p.push();
