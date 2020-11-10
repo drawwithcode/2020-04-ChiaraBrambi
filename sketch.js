@@ -15,7 +15,11 @@ function makeSketch(id, hue, b) {
     radiusMin: 0.1,
     radiusMax: 3,
     radiusStep: 0.1,
-    seedColor: '#f07575',
+    seedColor: ['PaleVioletRed','Crimson','IndianRed','MediumOrchid','Teal'],//così facendo posso fare menu a tendina
+
+    //iterazione
+    label: 'Nome Rosa',
+    bordo: false,
 
     // scale
     zoom: 7,
@@ -67,6 +71,17 @@ function makeSketch(id, hue, b) {
       // raggio del fiore
       let r = params.radius * params.zoom;
 
+  //////////////////////////////////////////////////////////////////////////////////
+//stroke
+	if(params.bordo) {
+		p.stroke(c);
+	} else {
+	 p.noStroke();
+	}
+p.textFont('Beth Ellen');
+p.textSize(20);
+p.text(params.label,div.clientWidth/3*2,div.clientHeight/6);
+
 //costruzione forma
       p.push();
       // rose al centro
@@ -75,8 +90,7 @@ function makeSketch(id, hue, b) {
       for(let i = 0; i < params.seeds; i++) {
         p.push();
         p.rotate(i * params.angle);
-        p.noStroke();
-        // distanza dal centro
+                // distanza dal centro
         let d = p.sqrt(i + 0.5) * params.zoom;
         p.ellipse(d, 0, r, r+20);
         p.pop();

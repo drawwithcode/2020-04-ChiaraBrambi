@@ -1,5 +1,5 @@
 
-//manca slider e commenti fatti bene e suono 
+//manca slider e commenti fatti bene e suono
 let slider;
 let sfondo, cupido;
 let tt;
@@ -16,7 +16,7 @@ function setup() {
     createCanvas(windowWidth,windowHeight);
 //SLIDER
     slider = createSlider(0, 255, 0, 0.1);//slider(min, max, [value], [step])
-    slider.position(width/4, height/2*1.7);
+    slider.position(width/4, height/2*1.6);
     slider.style('width', '100px');
     slider.class("cslider");
   }
@@ -26,7 +26,7 @@ function setup() {
 
   //BOTTONE
   b1 = createButton('Crea una Rosa');
-  b1.position(width/40, (height - 130));
+  b1.position(width/40, (height - 130));// per mettere un dom html nella canvas js
   b1.size(300);
   b1.class("mainbutton");
   b1.mousePressed(x);
@@ -35,14 +35,19 @@ function setup() {
   tt='L’amour est une rose, chaque pétale une illusion, chaque épine la réalité.';
   tt2='L’amore è una rosa, ogni petalo un’illusione, ogni spina una realtà.';
   tt3='Charles Baudelaire';
+
+
+    textFont('Roboto Slab');
+    textSize(20);
+    text(tt2,width/20,height/4,320);
+
   textFont('Beth Ellen');
   textSize(20);
   text(tt,width/20,height/7,400);
   text(tt3,width/20,height/2);
 
-  textFont('Roboto Slab');
-  textSize(20);
-  text(tt2,width/20,height/4,320);
+  text('Scambia gli amanti',width/4, height/2*1.5);
+
 
 
   //immagine
